@@ -5,7 +5,7 @@ To compile
 
 This should create a jar file in target directory.
 
-java -jar target/.jar
+java -jar target/target/cmpe272-shortener-0.1.0.jar
 
 dependencies:
 1. Install mongo db
