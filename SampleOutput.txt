@@ -1,8 +1,6 @@
 macbookpro:CMPE272 swetha$ #TESTING POST
 ===============================
 macbookpro:CMPE272 swetha$ curl -v -H "Content-Type: application/json" -X POST -d '{"oURL":"www.kayak.com"}' http://localhost:8080/api/v1/url/shorten;echo;
-* Hostname was NOT found in DNS cache
-*   Trying ::1...
 * Connected to localhost (::1) port 8080 (#0)
 > POST /api/v1/url/shorten HTTP/1.1
 > User-Agent: curl/7.37.1
@@ -22,8 +20,6 @@ macbookpro:CMPE272 swetha$ curl -v -H "Content-Type: application/json" -X POST -
 ==================================
 #TESTING GET
 macbookpro:CMPE272 swetha$ curl -v http://localhost:8080/api/v1/url/017dc1b; echo;
-* Hostname was NOT found in DNS cache
-*   Trying ::1...
 * Connected to localhost (::1) port 8080 (#0)
 > GET /api/v1/url/017dc1b HTTP/1.1
 > User-Agent: curl/7.37.1
@@ -60,8 +56,6 @@ curl: (6) Could not resolve host: DELETE
 < Content-Length: 13
 < Date: Mon, 13 Nov 2017 06:29:03 GMT
 < 
-* Connection #1 to host localhost left intact
-www.kayak.com
 ====================
 After inserting kayak post again, we can test for put
 macbookpro:CMPE272 swetha$ ## TESTING PUT BY CHANGING KAYAK.com to myntra.com
@@ -118,3 +112,5 @@ http://myntra.commacbookpro:CMPE272 swetha$ curl -v http://localhost:8080/api/v1
 * Connection #0 to host localhost left intact
 http://myntra.com
 macbookpro:CMPE272 swetha$ 
+=======
+
