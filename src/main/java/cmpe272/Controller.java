@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,7 +111,11 @@ public class Controller {
     			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     		}
     		
-    		return new ResponseEntity<>(repository.findBysURL(shortURL).get(0).oURL, HttpStatus.OK);
+    		HttpHeaders headers = new HttpHeaders();
+    		headers.add("Location",repository.findBysURL(shortURL).get(0).oURL);    
+
+    		
+    		return new ResponseEntity<>(headers, HttpStatus.PERMANENT_REDIRECT);
     }
     
   
