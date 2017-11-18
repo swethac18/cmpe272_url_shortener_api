@@ -89,11 +89,11 @@ public class Controller {
     				return new ResponseEntity<>(new Response(repository.findByoURL(oURL).get(0).sURL, oURL, ""), HttpStatus.ACCEPTED);
     			}
     		
-    			String sURL = GenerateMD5.getMD5(oURL);
+    			String sURL = GenerateHash.getMD5(oURL);
 
     			if (!repository.findBysURL(sURL).isEmpty()) {
     				long salt = System.currentTimeMillis();
-    				sURL = GenerateMD5.getMD5(oURL + salt);
+    				sURL = GenerateHash.getMD5(oURL + salt);
     			}
     		
     			UrlMap urlMap = new UrlMap(oURL, sURL);
