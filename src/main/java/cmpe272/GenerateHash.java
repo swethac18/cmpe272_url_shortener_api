@@ -9,6 +9,7 @@ public class GenerateHash {
 	
 	
 	    public static String getHash(String longurl) {
+        // Moving to SHA-512 as it is the secure Hash algorithm:
 	        try {
 	            MessageDigest md = MessageDigest.getInstance("SHA-512");
 	            byte[] sourceurl = md.digest(longurl.getBytes());
