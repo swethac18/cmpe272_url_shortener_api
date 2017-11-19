@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 public class GenerateHash {
 	
 	
-	    public static String getMD5(String longurl) {
+	    public static String getHash(String longurl) {
 	        try {
 	            MessageDigest md = MessageDigest.getInstance("SHA-512");
 	            byte[] sourceurl = md.digest(longurl.getBytes());
