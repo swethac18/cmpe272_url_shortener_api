@@ -11,17 +11,20 @@ public class UrlMap {
 	public String oURL;
 	public String sURL;
 	
+	public String userName;
+	
 	public UrlMap() {
 		
 	}
 	
-	public UrlMap(String originalURL, String shortenedURL) {
+	public UrlMap(String originalURL, String shortenedURL, String userName) {
 		this.oURL = originalURL;
 		this.sURL = shortenedURL;
+		this.userName = userName;
 	}
 	
 	@Override
 	public String toString() {
-		return String.format("UrlMap[id=%s, oURL='%s', sURL='%s']", id, oURL, sURL);
+		return String.format("UrlMap[id=%s, oURL='%s', sURL='%s', userName='%s']", id, oURL, sURL, userName);
 	}
 }
