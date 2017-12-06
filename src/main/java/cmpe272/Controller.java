@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
+@CrossOrigin(origins="*")
 @RestController
 public class Controller {
 
@@ -25,7 +25,7 @@ public class Controller {
 
 //https://stackoverflow.com/questions/16232833/how-to-respond-with-http-400-error-in-a-spring-mvc-responsebody-method-returnin
     
-    @CrossOrigin(origins="*")
+   
     @RequestMapping(method = RequestMethod.DELETE, value="/api/v1/url/{shortURL}")
     public ResponseEntity<Response> deleteURL(@RequestHeader(value="X-Forwarded-User") String user, @PathVariable String shortURL) {
     	if (user.equals(null) || user.isEmpty() == true) {
