@@ -35,17 +35,19 @@ public class Controller {
 		try {
 			UrlMap map = repository.findBysURL(shortURL).get(0);
 
-			if (map.userName.equals(user) == false) {
+			if (!map.userName.equals(user)) {
 				// User is different
 				return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
 			}
-			UrlMap urlMap = new UrlMap(shortURL, map.oURL, user);
+			UrlMap urlMap = new UrlMap(map.oURL, map.sURL, user);
 			String id = repository.findBysURL(urlMap.sURL).get(0).id;
 			repository.delete(id);
 			return new ResponseEntity<>(null, HttpStatus.OK);
 			
 		} catch (Exception e) {
-			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+			e.getMessage();
+			Response res = new Response("", "", e.toString());
+			return new ResponseEntity<>(res, HttpStatus.NOT_FOUND);
 		}
     }
     
