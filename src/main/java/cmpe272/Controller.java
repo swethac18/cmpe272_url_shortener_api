@@ -135,7 +135,7 @@ public class Controller {
     }
     
     @RequestMapping("/api/v1/urls")
-    public ResponseEntity<List<Response>> getUrls(@RequestHeader(value="X-Forwarded-User") String user, @PathVariable String shortURL) {
+    public ResponseEntity<List<Response>> getUrls(@RequestHeader(value="X-Forwarded-User") String user) {
     	if (user.equals(null) || user.isEmpty() == true) {
     		return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
     	}
