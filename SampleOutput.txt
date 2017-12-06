@@ -1,22 +1,25 @@
 macbookpro:CMPE272 swetha$ #TESTING POST
 ===============================
-macbookpro:CMPE272 swetha$ curl -v -H "Content-Type: application/json" -X POST -d '{"oURL":"www.kayak.com"}' http://localhost:8080/api/v1/url/shorten;echo;
-* Connected to localhost (::1) port 8080 (#0)
+hortener_api swetha$ curl -v -H "Content-Type: application/json" -H "X-Forwarded-User: swetha" -X POST -d  '{"oURL":"www.kayak.com"}' http://localhost:8080/api/v1/url/shorten
+* Hostname was NOT found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
 > POST /api/v1/url/shorten HTTP/1.1
 > User-Agent: curl/7.37.1
 > Host: localhost:8080
 > Accept: */*
 > Content-Type: application/json
+> X-Forwarded-User: swetha
 > Content-Length: 24
 > 
 * upload completely sent off: 24 out of 24 bytes
 < HTTP/1.1 202 
 < Content-Type: application/json;charset=UTF-8
 < Transfer-Encoding: chunked
-< Date: Mon, 13 Nov 2017 06:27:54 GMT
+< Date: Wed, 06 Dec 2017 03:44:51 GMT
 < 
 * Connection #0 to host localhost left intact
-{"originalURL":"www.kayak.com","status":"","shorternedURL":"017dc1b"}
+{"originalURL":"www.kayak.com","status":"","shorternedURL":"1fbbe4b"}macbookpro:cmpe272_url_shortener_api swetha$ 
 ==================================
 #TESTING GET
 macbookpro:CMPE272 swetha$ curl -v http://localhost:8080/api/v1/url/017dc1b; echo;
